@@ -1,0 +1,5 @@
+{
+  "/(platform)/page": "app/(platform)/page.js",
+  "/(platform)/dashboard/page": "app/(platform)/dashboard/page.js",
+  "/(platform)/survey-builder/page": "app/(platform)/survey-builder/page.js"
+}

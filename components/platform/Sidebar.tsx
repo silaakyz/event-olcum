@@ -7,8 +7,6 @@ const links = [
   { href: '/dashboard', label: 'Dashboard' },
   { href: '/survey-builder', label: 'Survey Builder' },
   { href: '/surveys', label: 'Surveys' },
-  { href: '/survey/demo', label: 'Live Survey' },
-  { href: '/report', label: 'Reports' },
 ];
 
 export function Sidebar() {
