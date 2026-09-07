@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+    branches: ['**']
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NODE_ENV: production
+      PORT: '3100'
+      TEST_BASE_URL: 'http://127.0.0.1:3100'
+      AUDIT_TRAIL_MAX: '1000'
+      TELEMETRY_MAX_PENDING: '1000'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: CI Env check
+        run: node scripts/ci_env_check.js
+
+      - name: Build (production)
+        run: npm run build
+
+      - name: Run contract tests
+        run: node --test tests/contract.test.mjs
+      - name: Run determinism tests
+        run: node --test tests/determinism.test.mjs
+      - name: Run lightweight load test
+        run: node scripts/load_test.js --concurrency 20 --iterations 2 --url ${{ env.TEST_BASE_URL }}/api/report

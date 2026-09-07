@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import 'tailwindcss';
+
+html, body, #root {
+  height: 100%;
+}
+
+@theme inline {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Surface */
+  --color-bg:            #f8fafc;
+  --color-surface:       #ffffff;
+  --color-surface-2:     #f1f5f9;
+
+  /* Ink */
+  --color-ink:           #0f172a;
+  --color-ink-2:         #475569;
+  --color-ink-3:         #94a3b8;
+
+  /* Accent — soft blue */
+  --color-blue:          #2563eb;
+  --color-blue-hover:    #1d4ed8;
+  --color-blue-light:    #eff6ff;
+  --color-blue-border:   #bfdbfe;
+
+  /* Borders */
+  --color-border:        #e2e8f0;
+  --color-border-2:      #f1f5f9;
+
+  /* Status */
+  --color-green:         #16a34a;
+  --color-green-bg:      #f0fdf4;
+  --color-green-border:  #bbf7d0;
+  --color-amber:         #b45309;
+  --color-amber-bg:      #fffbeb;
+  --color-amber-border:  #fde68a;
+  --color-slate:         #64748b;
+  --color-slate-bg:      #f8fafc;
+  --color-slate-border:  #e2e8f0;
+  --color-red:           #dc2626;
+  --color-red-bg:        #fef2f2;
+  --color-red-border:    #fecaca;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+}
+
+input, textarea, select, button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+::-webkit-scrollbar { width: 5px; background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
+
+::selection { background: var(--color-blue-light); }
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fade-in 0.25s ease both; }
+
+@keyframes spin { to { transform: rotate(360deg); } }

@@ -1,0 +1,10 @@
+{
+  "description": "Upload CSV files to generate clear, focused NPS reports with key metrics and realistic insights designed for streamlined customer feedback analysis.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
